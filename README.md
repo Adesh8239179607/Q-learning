@@ -1,10 +1,13 @@
-# Teach AI To Play Snake! Reinforcement Learning With PyTorch and Pygame
+# snakegameQ
+An automated agent based on the concept of Q-Learning for playing the popular snake game.
+## major changes made:
+Updated the standard Q-model by replacing one policy network with 2 networks namely the target and policy network and providing a difference in their update frequency for better and more stabilized convergence.
 
-In this Python Reinforcement Learning Tutorial series we teach an AI to play Snake! We build everything from scratch using Pygame and PyTorch. The tutorial consists of 4 parts:
+Updated the reward function by introducing penalities for getting trapped in loops and for moving away from the food at any instance in addition to the standard rewards for eating,collision etc.
 
-You can find all tutorials on my channel: [Playlist](https://www.youtube.com/playlist?list=PLqnslRFeH2UrDh7vUmJ60YrmWd64mTTKV)
+Tried many function for the change of epsilon for the epsilon greedy strategy like step functions, linears and exponential. Finally settled for exponential due to its asymptotic behaviour which always keeps a chance open for exploration.
 
-- Part 1: I'll show you the project and teach you some basics about Reinforcement Learning and Deep Q Learning.
-- Part 2: Learn how to setup the environment and implement the Snake game.
-- Part 3: Implement the agent that controls the game.
-- Part 4: Implement the neural network to predict the moves and train it.
+Increased the model complexity to 11-(1024)-3 where 11 is the count of state variables and 3 is count of action variables.
+
+## results:
+ The model gradually settles at an average score of about 30 with records as high as 80-90+ scores in the setup defined in code.
