@@ -1,13 +1,34 @@
 # snakegameQ
 An automated agent based on the concept of Q-Learning for playing the popular snake game.
-## major changes made:
-Updated the standard Q-model by replacing one policy network with 2 networks namely the target and policy network and providing a difference in their update frequency for better and more stabilized convergence.
 
-Updated the reward function by introducing penalities for getting trapped in loops and for moving away from the food at any instance in addition to the standard rewards for eating,collision etc.
+# Features
 
-Tried many function for the change of epsilon for the epsilon greedy strategy like step functions, linears and exponential. Finally settled for exponential due to its asymptotic behaviour which always keeps a chance open for exploration.
+Q-Learning with Deep Neural Networks: policy & target networks for stability.
 
-Increased the model complexity to 11-(1024)-3 where 11 is the count of state variables and 3 is count of action variables.
+State Representation: 11 engineered features capturing food direction, obstacles, and snake body position.
 
-## results:
- The model gradually settles at an average score of about 30 with records as high as 80-90+ scores in the setup defined in code.
+Neural Network Architecture: MLP (11 → 1024 → 3) with ReLU activations.
+
+Exploration Strategy: exponential epsilon decay, optimized for convergence.
+
+Reward Shaping: penalizes loop traps & moving away from food, encourages efficient paths.
+
+Results: average score ~30; highest scores reaching 80–90+.
+
+# Results & Visuals
+
+| Metric                  | Value               |
+| ----------------------- | ------------------- |
+| Avg score (over N runs) | \~30                |
+| Best score              | 80–90+              |
+| Network                 | 11-1024-3 MLP       |
+| Exploration             | Exponential epsilon |
+
+
+# Experiments
+
+Compared linear vs exponential epsilon decay.
+
+Analyzed reward shaping impact on agent’s survival.
+
+Tested stability improvements with target vs policy networks.
